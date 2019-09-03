@@ -29,7 +29,7 @@ func token(w http.ResponseWriter, r *http.Request) {
 			"iss": "https://myapp.example.com",
 			"sub": "1234567890qwertyuio",
 			"jti": "mnb23vcsrt756yuiomnbvcx98ertyuiop",
-			"roles": "admin",
+			"roles": ["admin", "user"],
 			"exp": 1735689600
 		},
 		"refresh_token": {
