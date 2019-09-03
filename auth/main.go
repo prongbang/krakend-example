@@ -71,13 +71,12 @@ func refreshToken(w http.ResponseWriter, r *http.Request) {
 	hf := ginkrakendjose.HandlerFactory(ginkrakend.EndpointHandler, logger, nil)
 
 	engine := gin.New()
-
 	engine.POST(signerEndpointCfg.Endpoint, hf(signerEndpointCfg, tokenIssuer))
 
 	fmt.Println("token request")
 	req := httptest.NewRequest("POST", signerEndpointCfg.Endpoint, new(bytes.Buffer))
-
 	ws := httptest.NewRecorder()
+
 	engine.ServeHTTP(ws, req)
 
 	responseData := struct {
